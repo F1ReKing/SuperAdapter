@@ -1,4 +1,4 @@
-package com.f1reking.adaptersam;
+package com.f1reking.adapter_sample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
  * @author F1ReKing
  * @time 2018/5/2
  */
-public class MultiActivity extends AppCompatActivity {
+public class ListViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
