@@ -33,9 +33,6 @@ public class BaseAdapter extends RecyclerView.Adapter implements ListAdapter, Sp
 
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
 
-    ///////////////////////////////////////////////////////////////////////////
-    // RecyclerView
-    ///////////////////////////////////////////////////////////////////////////
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
@@ -51,9 +48,6 @@ public class BaseAdapter extends RecyclerView.Adapter implements ListAdapter, Sp
         return 0;
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-    // ListView
-    ///////////////////////////////////////////////////////////////////////////
     @Override
     public boolean areAllItemsEnabled() {
         return true;
