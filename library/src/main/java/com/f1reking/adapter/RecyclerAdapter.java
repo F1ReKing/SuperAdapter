@@ -36,8 +36,8 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<SuperViewHolder> {
 
     @NonNull
     @Override
-    public SuperViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        final SuperViewHolder holder;
+    public SuperViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        final SuperViewHolder holder = new SuperViewHolder(parent,viewType);
         return holder;
     }
 
