@@ -15,13 +15,17 @@
  */
 package com.f1reking.adapter;
 
+import android.content.Context;
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.SpinnerAdapter;
+import java.util.List;
 
 /**
  * 描述：
@@ -29,9 +33,10 @@ import android.widget.SpinnerAdapter;
  * @author F1ReKing
  * @time 2018/5/2
  */
-public class BaseAdapter extends RecyclerView.Adapter implements ListAdapter, SpinnerAdapter {
+public class BaseAdapter<T> extends RecyclerView.Adapter implements ListAdapter, SpinnerAdapter {
 
-    private final DataSetObservable mDataSetObservable = new DataSetObservable();
+    private AbsListView mAbsListView;
+    private DataSetObservable mDataSetObservable = new DataSetObservable();
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
