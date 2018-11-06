@@ -16,9 +16,9 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<SuperViewHolder> {
 
     private static final String TAG = RecyclerAdapter.class.getSimpleName();
 
-    private Context mContext;
-    private List<T> mDatas;
-    private int mLayoutRedId;
+    protected Context mContext;
+    protected List<T> mDatas;
+    protected int mLayoutRedId;
 
     public RecyclerAdapter(Context context, List<T> datas, @LayoutRes int layoutRedId) {
         mContext = context;

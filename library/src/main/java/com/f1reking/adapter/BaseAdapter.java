@@ -33,19 +33,13 @@ import java.util.List;
  * @author F1ReKing
  * @time 2018/5/2
  */
-public class BaseAdapter<T> extends RecyclerView.Adapter implements ListAdapter, SpinnerAdapter {
+public class BaseAdapter<T> extends RecyclerAdapter<T> implements ListAdapter, SpinnerAdapter {
 
     private AbsListView mAbsListView;
     private DataSetObservable mDataSetObservable = new DataSetObservable();
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
-    }
-
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+    public BaseAdapter(Context context, List<T> datas, int layoutRedId) {
+        super(context, datas, layoutRedId);
     }
 
     @Override
@@ -78,22 +72,28 @@ public class BaseAdapter<T> extends RecyclerView.Adapter implements ListAdapter,
         mDataSetObservable.unregisterObserver(observer);
     }
 
-    public void notifyListDataSetChanged(){
+    public void notifyListDataSetChanged() {
         mDataSetObservable.notifyChanged();
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return mDatas == null ? 0 : mDatas.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public T getItem(int position) {
+        if (position >= mDatas.size()) {
+            return null;
+        }
+        return mDatas.get(position);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        if (mAbsListView == null && parent instanceof AbsListView) {
+            mAbsListView = (AbsListView) parent;
+        }
         return null;
     }
 
@@ -109,7 +109,11 @@ public class BaseAdapter<T> extends RecyclerView.Adapter implements ListAdapter,
 
     @Override
     public int getItemViewType(int position) {
-        return 0;
+        return super.getItemViewType(position);
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 }
